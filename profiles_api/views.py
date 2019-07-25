@@ -53,7 +53,7 @@ class YoApiView(APIView):
         return Response({'method': 'DELETE'})
 
 
-class YoViewSets(viewsets.Viewset):
+class YoViewSets(viewsets.ViewSet):
     """Test API viewset"""
 
     def list(self, request):

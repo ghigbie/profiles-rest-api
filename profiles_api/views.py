@@ -7,6 +7,7 @@ from profiles_api import serializers
 
 class YoApiView(APIView):
     """Test API View"""
+    serializer_class = serializers.YoSerializer 
 
     def get(self, request, format=None):
         """Returns a list of APIView features"""
@@ -22,3 +23,20 @@ class YoApiView(APIView):
                 'an_apiview': an_apiview
             }
         )
+
+    def post(self, request):
+        """Create a yo message with a name"""
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            name = serializer.validated_data.get('name')
+            message = f'Yo {name}!'
+            return Response({'message': message})
+        else:
+            return Response(
+                serializer.errors,
+                status = status.HTTP_400_BAD_REQUEST
+            )
+    
+    def put(self, request, pk=None):
+        """Handle updating an object"""
+        return Response({'method': 'PUT'})

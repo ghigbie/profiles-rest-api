@@ -1,11 +1,11 @@
 from django.urls import path, include
 from profiles_api import views
-from rest_framework.router import DefaultRouter
+from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 router.register('yo-viewset', views.YoViewSets, base_name="yo-viewset")
 
 urlpatterns = [
-    path('yo/', views.YoApiView.as_view())
-    path('', include(router.urls)
+    path('yo/', views.YoApiView.as_view()),
+    path('', include(router.urls))
 ]

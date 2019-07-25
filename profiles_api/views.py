@@ -55,6 +55,7 @@ class YoApiView(APIView):
 
 class YoViewSets(viewsets.ViewSet):
     """Test API viewset"""
+    serializer_class = serializers.YoSerializer
 
     def list(self, request):
         """Return a yo message"""
@@ -70,3 +71,25 @@ class YoViewSets(viewsets.ViewSet):
                 'a_viewset' : a_viewset,
             }
         )
+
+    def create(self, request):
+        """Create a new yo message"""
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            name = serializer.validated_data.get('name')
+            message = f'Yo {name}'
+            return Response({'message': message})
+        else:
+            return Response(
+                serializer.errors,
+                status = status.HTTP_400_BAD_REQUEST
+            )
+
+    def retreive(self, request, pk=None):
+        """Handle getting an object by its ID"""
+        return Response({'http_method': 'GET'})
+
+    def update(self, request, pk=None):
+        """Handle updating an object"""
+        return Response({'http_method': 'PUT'})
+

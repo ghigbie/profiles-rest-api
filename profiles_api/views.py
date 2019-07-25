@@ -93,6 +93,10 @@ class YoViewSets(viewsets.ViewSet):
         """Handle updating an object"""
         return Response({'http_method': 'PUT'})
 
-    def partial_update(self, requst, pk=None)
+    def partial_update(self, request, pk=None):
         """handle updating part of an object"""
         return Response({'http_method': 'PATCH'})
+
+    def destroy(self, request, pk=None):
+        """Handle removing an object"""
+        return Response({'http_method': 'DELETE'})

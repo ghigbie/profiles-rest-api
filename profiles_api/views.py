@@ -85,7 +85,7 @@ class YoViewSets(viewsets.ViewSet):
                 status = status.HTTP_400_BAD_REQUEST
             )
 
-    def retreive(self, request, pk=None):
+    def retrieve(self, request, pk=None):
         """Handle getting an object by its ID"""
         return Response({'http_method': 'GET'})
 

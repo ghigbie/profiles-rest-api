@@ -93,3 +93,6 @@ class YoViewSets(viewsets.ViewSet):
         """Handle updating an object"""
         return Response({'http_method': 'PUT'})
 
+    def partial_update(self, requst, pk=None)
+        """handle updating part of an object"""
+        return Response({'http_method': 'PATCH'})

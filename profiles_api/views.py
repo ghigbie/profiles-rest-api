@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from profiles_api import serializers
-
+from rest_framework import viewsets
 
 
 class YoApiView(APIView):
@@ -37,6 +37,7 @@ class YoApiView(APIView):
                 status = status.HTTP_400_BAD_REQUEST
             )
     
+
     def put(self, request, pk=None):
         """Handle updating an object"""
         return Response({'method': 'PUT'})
@@ -46,6 +47,26 @@ class YoApiView(APIView):
         """Handle partial update of an object"""
         return Response({'method': 'PATCH'})
 
+
     def delete(self, request, pk=None):
         """Delete an object in a database"""
         return Response({'method': 'DELETE'})
+
+
+class YoViewSets(viewsets.Viewset):
+    """Test API viewset"""
+
+    def list(self, request):
+        """Return a yo message"""
+
+        a_viewset = [
+            'Uses actions (list, create, retreive, update, partial_update, destry)',
+            'Automatically maps to URLS using Routers',
+            'Provides more functionality with less code',
+        ]
+        return Response(
+            {
+                'message': 'Yo!!!!',
+                'a_viewset' : a_viewset,
+            }
+        )

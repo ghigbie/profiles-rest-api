@@ -48,4 +48,4 @@ class YoApiView(APIView):
 
     def delete(self, request, pk=None):
         """Delete an object in a database"""
-        retrun Response({'method': 'DELETE'})
+        return Response({'method': 'DELETE'})

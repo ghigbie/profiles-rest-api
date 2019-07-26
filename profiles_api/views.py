@@ -111,6 +111,6 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.UserProfileSerializer
     queryset = models.UserProfile.objects.all()
     authentication_classes = (TokenAuthentication,) #needs a comma so that it is created as tuple 
-    permissions_classes = (permissions.UpdateOwnProfile,)#tuple
+    permission_classes = (permissions.UpdateOwnProfile,)#tuple
     filter_backends = (filters.SearchFilter,) #tuple
     search_fields = ('name', 'email',)

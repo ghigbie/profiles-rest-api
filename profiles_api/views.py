@@ -1,10 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
-from profiles_api import serializers
-from rest_framework import viewsets
-from profiles_api import models
+from rest_framework import status, viewsets
 from rest_framework.authentication import TokenAuthentication
+from profiles_api import models, permissions, serializers
 
 class YoApiView(APIView):
     """Test API View"""

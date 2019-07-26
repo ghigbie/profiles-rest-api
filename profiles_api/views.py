@@ -4,6 +4,7 @@ from rest_framework import status
 from rest_framework import viewsets
 from rest_framework import filters
 from rest_framework.authentication import TokenAuthentication
+from rest_framework.authtoken.views import ObtainAuthToken
 
 from profiles_api import serializers
 from profiles_api import models

@@ -27,3 +27,9 @@ class UserProfileSerializer(serializers.ModelSerializer):
                 password=validated_data['password']
             )
             return user
+
+class ProfileFeedItemSerializer(serializers.ModelSerializer):
+    """Serializes profile feed items"""
+    class Meta:
+        model = modles.ProfileFeedItem
+        fields = ('id', 'user_profile', 'status_text', 'created_on')

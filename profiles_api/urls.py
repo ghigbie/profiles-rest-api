@@ -5,6 +5,7 @@ from profiles_api import views
 router = DefaultRouter()
 router.register('yo-viewset', views.YoViewSets, base_name="yo-viewset")
 router.register('profile', views.UserProfileViewSet) #no base_name required
+router.register('feed', views.UserProfileFeedViewSet)
 
 urlpatterns = [
     path('yo/', views.YoApiView.as_view()),

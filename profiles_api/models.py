@@ -55,8 +55,9 @@ class ProfileFeedItem(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE
     )
-    status_test = models.CharField(max_length=255)
+    status_text = models.CharField(max_length=255)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def ___str__(self): 
         """Return the model as a string"""
+        return self.status_text
